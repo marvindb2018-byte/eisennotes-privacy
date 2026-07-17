@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EisenhowerNotes — Politique de confidentialité</title>
+<meta name="description" content="Politique de confidentialité de l'application EisenhowerNotes. Aucune donnée collectée : tout reste sur votre appareil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBFBFC;
+    --surface:#FFFFFF;
+    --ink:#16181D;
+    --muted:#565B67;
+    --faint:#8A8F9C;
+    --line:#E7E8EC;
+    --accent:#2F6F7E;
+    --accent-soft:#EAF1F2;
+    --q1:#C25B54;
+    --q2:#3E7C8C;
+    --q3:#B0873C;
+    --q4:#8A8F9C;
+    --display:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;
+    --body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .ribbon{display:flex;height:5px;}
+  .ribbon span{flex:1;}
+  .ribbon span:nth-child(1){background:var(--q1);}
+  .ribbon span:nth-child(2){background:var(--q2);}
+  .ribbon span:nth-child(3){background:var(--q3);}
+  .ribbon span:nth-child(4){background:var(--q4);}
+
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px 96px;}
+
+  header{padding:56px 0 40px;border-bottom:1px solid var(--line);margin-bottom:44px;}
+  .brand{display:flex;align-items:center;gap:16px;margin-bottom:26px;}
+  .glyph{width:40px;height:40px;flex:none;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px;}
+  .glyph i{border-radius:4px;}
+  .glyph i:nth-child(1){background:var(--q1);}
+  .glyph i:nth-child(2){background:var(--q2);}
+  .glyph i:nth-child(3){background:var(--q3);}
+  .glyph i:nth-child(4){background:var(--q4);}
+  .brand-name{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-0.01em;}
+
+  h1{font-family:var(--display);font-weight:600;font-size:clamp(30px,6vw,42px);line-height:1.08;letter-spacing:-0.02em;margin:0 0 14px;}
+  .meta{color:var(--muted);font-size:15px;margin:0;}
+
+  .toggle{display:inline-flex;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px;margin-top:28px;}
+  .toggle button{
+    font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.02em;
+    border:0;background:transparent;color:var(--muted);
+    padding:7px 18px;border-radius:999px;cursor:pointer;transition:background .18s,color .18s;
+  }
+  .toggle button[aria-pressed="true"]{background:var(--accent);color:#fff;}
+  .toggle button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+  .summary{
+    background:var(--accent-soft);
+    border:1px solid #D6E4E6;
+    border-radius:14px;
+    padding:22px 24px;
+    margin:0 0 44px;
+    font-size:16px;
+  }
+  .summary strong{color:var(--accent);}
+
+  h2{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-0.01em;margin:44px 0 12px;padding-top:8px;}
+  h2 .num{color:var(--faint);font-weight:500;margin-right:10px;}
+  p{margin:0 0 16px;}
+  a{color:var(--accent);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;}
+  .fill{background:#FFF4E5;border-bottom:1px solid #E9C589;padding:0 4px;border-radius:3px;font-weight:500;}
+
+  .perm{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:6px 0 20px;}
+  .perm .row{display:flex;gap:16px;padding:16px 20px;border-top:1px solid var(--line);}
+  .perm .row:first-child{border-top:0;}
+  .perm .dot{width:10px;height:10px;border-radius:50%;flex:none;margin-top:8px;}
+  .perm .row:nth-child(1) .dot{background:var(--q1);}
+  .perm .row:nth-child(2) .dot{background:var(--q2);}
+  .perm .row:nth-child(3) .dot{background:var(--q3);}
+  .perm .row:nth-child(4) .dot{background:var(--q4);}
+  .perm .row:nth-child(5) .dot{background:var(--accent);}
+  .perm .k{font-weight:600;display:block;margin-bottom:2px;}
+  .perm .v{color:var(--muted);font-size:15px;}
+
+  footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);color:var(--faint);font-size:14px;}
+
+  [data-lang]{display:none;}
+  body.lang-fr [data-lang="fr"]{display:revert;}
+  body.lang-en [data-lang="en"]{display:revert;}
+  .perm[data-lang]{display:none;}
+  body.lang-fr .perm[data-lang="fr"]{display:block;}
+  body.lang-en .perm[data-lang="en"]{display:block;}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;}}
+  @media (max-width:520px){
+    body{font-size:16px;}
+    .wrap{padding:0 18px 72px;}
+    header{padding:36px 0 28px;}
+  }
+</style>
+</head>
+<body class="lang-fr">
+  <div class="ribbon"><span></span><span></span><span></span><span></span></div>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="glyph" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <div class="brand-name">EisenhowerNotes</div>
+      </div>
+      <h1 data-lang="fr">Politique de confidentialité</h1>
+      <h1 data-lang="en">Privacy Policy</h1>
+      <p class="meta" data-lang="fr">Dernière mise à jour : <span class="fill">[date]</span> · Package : com.eisenhowernotes.app</p>
+      <p class="meta" data-lang="en">Last updated: <span class="fill">[date]</span> · Package: com.eisenhowernotes.app</p>
+      <div class="toggle" role="group" aria-label="Language">
+        <button id="btn-fr" aria-pressed="true" onclick="setLang('fr')">FR</button>
+        <button id="btn-en" aria-pressed="false" onclick="setLang('en')">EN</button>
+      </div>
+    </header>
+
+    <!-- ============ FRANÇAIS ============ -->
+    <main data-lang="fr">
+      <div class="summary">
+        <strong>En bref.</strong> EisenhowerNotes est une application de gestion de tâches fondée sur la matrice d'Eisenhower. Elle fonctionne <strong>entièrement sur votre appareil</strong>. Nous ne collectons, ne transmettons et ne partageons aucune donnée personnelle. Il n'y a ni compte utilisateur, ni serveur, ni publicité, ni outil de suivi (tracking), ni statistiques (analytics).
+      </div>
+
+      <h2><span class="num">1</span>Responsable de l'application</h2>
+      <p>Cette application est éditée par <span class="fill">[Nom du développeur / de l'éditeur]</span>. Pour toute question relative à la présente politique, vous pouvez nous contacter à l'adresse : <span class="fill">[adresse e-mail de contact]</span>.</p>
+
+      <h2><span class="num">2</span>Données traitées par l'application</h2>
+      <p>EisenhowerNotes vous permet de créer des tâches et des notes, et d'y joindre des photos. Ces contenus — textes de vos tâches et notes, images jointes, organisation dans la matrice — sont enregistrés <strong>localement sur votre appareil</strong>, dans une base de données SQLite interne à l'application. Ces données ne quittent jamais votre appareil et ne nous sont jamais transmises. Nous n'y avons aucun accès.</p>
+
+      <h2><span class="num">3</span>Autorisations demandées</h2>
+      <p>L'application peut demander les autorisations suivantes, uniquement pour fournir ses fonctionnalités. Chaque autorisation sert exclusivement un traitement local :</p>
+      <div class="perm" data-lang="fr">
+        <div class="row"><span class="dot"></span><div><span class="k">Appareil photo (caméra)</span><span class="v">Pour prendre une photo et la joindre à une note. La photo est enregistrée sur votre appareil.</span></div></div>
+        <div class="row"><span class="dot"></span><div><span class="k">Accès aux photos / à la galerie (lecture)</span><span class="v">Pour sélectionner une image existante et la joindre à une note.</span></div></div>
+        <div class="row"><span class="dot"></span><div><span class="k">Enregistrement d'images (écriture dans la galerie)</span><span class="v">Pour sauvegarder une image dans la galerie de votre appareil, à votre demande.</span></div></div>
+        <div class="row"><span class="dot"></span><div><span class="k">Réception de contenus partagés</span><span class="v">L'application peut recevoir du texte ou des images que vous partagez depuis d'autres applications. Ce contenu est traité localement et enregistré sur votre appareil.</span></div></div>
+        <div class="row"><span class="dot"></span><div><span class="k">Widget d'écran d'accueil</span><span class="v">Le widget affiche vos tâches en cours. Il lit uniquement les données stockées localement par l'application.</span></div></div>
+      </div>
+      <p>Vous pouvez accorder ou révoquer ces autorisations à tout moment dans les paramètres de votre appareil. Si vous refusez une autorisation, seule la fonctionnalité correspondante sera indisponible.</p>
+
+      <h2><span class="num">4</span>Stockage et sécurité</h2>
+      <p>Toutes vos données sont stockées localement sur votre appareil et protégées par les mécanismes de sécurité de votre système d'exploitation (isolation des applications, chiffrement de l'appareil lorsqu'il est activé). Comme aucune donnée n'est transmise sur un réseau, il n'existe aucune transmission vers un serveur à sécuriser.</p>
+      <p>Si vous avez activé une sauvegarde automatique de votre appareil (par exemple la sauvegarde Android vers votre propre espace Google Drive), les données de l'application peuvent être incluses dans cette sauvegarde. Cette sauvegarde est gérée par votre appareil et par les services que vous avez configurés — et non par nous ; vous pouvez la désactiver dans les paramètres de votre appareil.</p>
+
+      <h2><span class="num">5</span>Partage avec des tiers</h2>
+      <p>Nous ne partageons aucune donnée avec des tiers. L'application n'intègre aucune publicité, aucun outil de suivi, aucune bibliothèque d'analyse (analytics) et aucun service tiers de collecte de données. Aucune donnée n'est vendue, louée ou transmise à qui que ce soit.</p>
+
+      <h2><span class="num">6</span>Conservation et suppression des données</h2>
+      <p>Vous gardez le contrôle total de vos données. Vous pouvez à tout moment supprimer une tâche, une note ou une image directement dans l'application. La désinstallation de l'application supprime l'ensemble des données qu'elle a enregistrées sur votre appareil. Comme nous ne détenons aucune donnée sur un serveur, il n'y a pas de demande de suppression à nous adresser.</p>
+
+      <h2><span class="num">7</span>Enfants</h2>
+      <p>L'application ne s'adresse pas spécifiquement aux enfants et ne collecte sciemment aucune donnée personnelle de quiconque, y compris des enfants, puisqu'aucune donnée n'est collectée.</p>
+
+      <h2><span class="num">8</span>Vos droits</h2>
+      <p>L'application étant conçue pour fonctionner sans collecte ni transmission de données personnelles, nous ne détenons aucune donnée vous concernant. Vous exercez de fait un contrôle direct et complet sur vos données depuis votre appareil. Si la réglementation applicable (par exemple le RGPD) vous ouvre des droits d'accès, de rectification ou de suppression, ceux-ci s'exercent directement dans l'application, l'ensemble des données résidant sur votre appareil.</p>
+
+      <h2><span class="num">9</span>Modifications de cette politique</h2>
+      <p>Nous pouvons mettre à jour cette politique de confidentialité, notamment pour refléter des évolutions de l'application ou des obligations légales. La date de dernière mise à jour figure en haut de cette page. En cas de modification importante, nous en informerons les utilisateurs par un moyen approprié.</p>
+
+      <h2><span class="num">10</span>Contact</h2>
+      <p>Pour toute question concernant cette politique ou vos données : <span class="fill">[adresse e-mail de contact]</span>.</p>
+    </main>
+
+    <!-- ============ ENGLISH ============ -->
+    <main data-lang="en">
+      <div class="summary">
+        <strong>At a glance.</strong> EisenhowerNotes is a task-management app based on the Eisenhower matrix. It runs <strong>entirely on your device</strong>. We do not collect, transmit, or share any personal data. There are no user accounts, no servers, no ads, no tracking, and no analytics.
+      </div>
+
+      <h2><span class="num">1</span>Who is responsible for the app</h2>
+      <p>This app is published by <span class="fill">[Developer / Publisher name]</span>. For any question about this policy, contact us at: <span class="fill">[contact email address]</span>.</p>
+
+      <h2><span class="num">2</span>Data the app handles</h2>
+      <p>EisenhowerNotes lets you create tasks and notes and attach photos to them. This content — the text of your tasks and notes, attached images, and their arrangement in the matrix — is stored <strong>locally on your device</strong>, in a SQLite database internal to the app. This data never leaves your device and is never transmitted to us. We have no access to it.</p>
+
+      <h2><span class="num">3</span>Permissions requested</h2>
+      <p>The app may request the following permissions, solely to provide its features. Each permission serves an on-device purpose only:</p>
+      <div class="perm" data-lang="en">
+        <div class="row"><span class="dot"></span><div><span class="k">Camera</span><span class="v">To take a photo and attach it to a note. The photo is saved on your device.</span></div></div>
+        <div class="row"><span class="dot"></span><div><span class="k">Photos / gallery access (read)</span><span class="v">To select an existing image and attach it to a note.</span></div></div>
+        <div class="row"><span class="dot"></span><div><span class="k">Saving images (write to gallery)</span><span class="v">To save an image to your device's gallery, when you ask.</span></div></div>
+        <div class="row"><span class="dot"></span><div><span class="k">Receiving shared content</span><span class="v">The app can receive text or images that you share from other apps. This content is processed locally and stored on your device.</span></div></div>
+        <div class="row"><span class="dot"></span><div><span class="k">Home-screen widget</span><span class="v">The widget displays your current tasks. It reads only data stored locally by the app.</span></div></div>
+      </div>
+      <p>You can grant or revoke these permissions at any time in your device settings. If you decline a permission, only the corresponding feature will be unavailable.</p>
+
+      <h2><span class="num">4</span>Storage and security</h2>
+      <p>All your data is stored locally on your device and protected by your operating system's security mechanisms (app sandboxing, and device encryption when enabled). Because no data is sent over a network, there is no server transmission to secure.</p>
+      <p>If you have enabled an automatic backup of your device (for example, Android backup to your own Google Drive), the app's data may be included in that backup. This backup is managed by your device and the services you have configured — not by us — and you can disable it in your device settings.</p>
+
+      <h2><span class="num">5</span>Third-party sharing</h2>
+      <p>We do not share any data with third parties. The app contains no ads, no tracking, no analytics libraries, and no third-party data-collection services. No data is sold, rented, or disclosed to anyone.</p>
+
+      <h2><span class="num">6</span>Data retention and deletion</h2>
+      <p>You keep full control of your data. You can delete any task, note, or image directly in the app at any time. Uninstalling the app removes all data it has stored on your device. Because we hold no data on any server, there is no deletion request to send us.</p>
+
+      <h2><span class="num">7</span>Children</h2>
+      <p>The app is not specifically directed at children and does not knowingly collect personal data from anyone, including children, as no data is collected at all.</p>
+
+      <h2><span class="num">8</span>Your rights</h2>
+      <p>Because the app is designed to work without collecting or transmitting personal data, we hold no data about you. You therefore have direct and complete control over your data from your device. Where applicable law (for example, the GDPR) grants you rights of access, rectification, or erasure, you exercise these directly within the app, since all data resides on your device.</p>
+
+      <h2><span class="num">9</span>Changes to this policy</h2>
+      <p>We may update this privacy policy, notably to reflect changes to the app or legal obligations. The date of the last update appears at the top of this page. For any significant change, we will inform users by an appropriate means.</p>
+
+      <h2><span class="num">10</span>Contact</h2>
+      <p>For any question about this policy or your data: <span class="fill">[contact email address]</span>.</p>
+    </main>
+
+    <footer>
+      <span data-lang="fr">© <span id="yr-fr"></span> EisenhowerNotes. Cette page est la politique de confidentialité officielle de l'application.</span>
+      <span data-lang="en">© <span id="yr-en"></span> EisenhowerNotes. This page is the official privacy policy of the app.</span>
+    </footer>
+  </div>
+
+<script>
+  function setLang(l){
+    document.body.className = 'lang-' + l;
+    document.documentElement.lang = l;
+    document.getElementById('btn-fr').setAttribute('aria-pressed', l==='fr');
+    document.getElementById('btn-en').setAttribute('aria-pressed', l==='en');
+    document.title = (l==='fr')
+      ? "EisenhowerNotes — Politique de confidentialité"
+      : "EisenhowerNotes — Privacy Policy";
+  }
+  var y = new Date().getFullYear();
+  document.getElementById('yr-fr').textContent = y;
+  document.getElementById('yr-en').textContent = y;
+</script>
+</body>
+</html>
